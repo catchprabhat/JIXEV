@@ -47,7 +47,7 @@ const StatsSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <img
-            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800"
+            src="/image6.jpeg"
             alt="JIXEV Service"
             className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl mb-8"
           />

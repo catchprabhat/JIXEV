@@ -24,7 +24,7 @@ const HowItWorksSection = () => {
       icon: Zap,
       title: "Safe Charging",
       description: "A trained operator handles the entire process, ensuring a safe and efficient charge.",
-      image: "https://images.unsplash.com/photo-1621361365424-06f0e1eb5c49?q=80&w=600",
+      image: "/image7.jpeg",
       color: "from-purple-500 to-purple-600"
     },
     {

@@ -35,9 +35,12 @@ const HeroSection = () => {
               EV-Ready Living
             </span>
           </h1>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-700 mb-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-700 mb-4">
             The Future of EV Charging is Mobile
           </h2>
+          <p className="text-base sm:text-lg text-gray-700 mb-8">
+            JIXEV charging solution pvt ltd is a independently owned and operated franchise of Charger on wheels
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
             <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
               Get Started

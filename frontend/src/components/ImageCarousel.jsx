@@ -3,11 +3,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ImageCarousel = () => {
   const images = [
-    "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000",
-    "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1000",
-    "https://images.unsplash.com/photo-1621361365424-06f0e1eb5c49?q=80&w=1000",
-    "https://images.unsplash.com/photo-1609832994616-d3d3e18a2a8c?q=80&w=1000",
-    "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=1000"
+    "/image1.jpeg",
+    "/image5.jpeg",
+    "/image4.jpeg",
+    "/image3.jpeg"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

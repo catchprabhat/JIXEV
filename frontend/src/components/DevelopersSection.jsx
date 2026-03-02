@@ -42,7 +42,7 @@ const DevelopersSection = () => {
             A Win-Win for Developers & Residents
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We solve the biggest hurdles in residential EV charging, creating value for everyone involved.
+            JIXEV charging  solution pvt ltd is a independently owned and operated franchise of Charger ok wheels
           </p>
         </div>
 
