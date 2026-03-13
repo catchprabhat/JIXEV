@@ -49,7 +49,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="font-semibold">Visit Us</p>
-                <p className="text-white/80">Bangalore, Karnataka, India</p>
+                <p className="text-white/80">Doddanagamangala Road, Electronic city Phase2, Bangalore, Karnataka, India</p>
               </div>
             </div>
           </div>

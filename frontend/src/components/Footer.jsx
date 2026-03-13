@@ -76,7 +76,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-2 flex-shrink-0 mt-1 text-green-400" />
-                <span className="text-gray-400">Bangalore, Karnataka, India</span>
+                <span className="text-gray-400">Doddanagamangala Road, Electronic city Phase2, Bangalore, Karnataka, India</span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-2 text-green-400" />
@@ -94,7 +94,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} JIXEV. All rights reserved.
+              © {currentYear} JIXEV CHARGING SOLUTIONS PVT LTD. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
