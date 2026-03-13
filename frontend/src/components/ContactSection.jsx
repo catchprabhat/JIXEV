@@ -31,7 +31,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="font-semibold">Call Us</p>
-                <p className="text-white/80">+91 9876543210</p>
+                <p className="text-white/80">+91 7737537655</p>
               </div>
             </div>
             <div className="flex items-center">
@@ -40,7 +40,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="font-semibold">Email Us</p>
-                <p className="text-white/80">contact@jixev.com</p>
+                <p className="text-white/80">jixevsolutions@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center">
@@ -49,7 +49,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="font-semibold">Visit Us</p>
-                <p className="text-white/80">Gurugram, Delhi NCR, India</p>
+                <p className="text-white/80">Bangalore, Karnataka, India</p>
               </div>
             </div>
           </div>
