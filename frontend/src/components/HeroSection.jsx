@@ -39,7 +39,15 @@ const HeroSection = () => {
             The Future of EV Charging is Mobile
           </h2>
           <p className="text-base sm:text-lg text-gray-700 mb-8">
-            JIXEV charging solution pvt ltd is a independently owned and operated franchise of Charger on wheels
+            JIXEV charging solution pvt ltd is a independently owned and operated franchise of{" "}
+            <a
+              href="https://chargeronwheels.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700 hover:text-blue-800 underline"
+            >
+              Charger on Wheels
+            </a>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
             <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
