@@ -46,7 +46,7 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               className="text-blue-700 hover:text-blue-800 underline"
             >
-              Charger on Wheels
+              Charger on Wheels (COW)
             </a>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
