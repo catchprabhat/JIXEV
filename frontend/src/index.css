@@ -119,3 +119,16 @@ html {
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out;
 }
+
+@keyframes pitchMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-pitch-marquee {
+  animation: pitchMarquee 40s linear infinite;
+}

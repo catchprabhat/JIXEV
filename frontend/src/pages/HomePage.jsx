@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import BatterySafetySection from "../components/BatterySafetySection";
@@ -14,6 +15,17 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
 const HomePage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const id = location.hash?.replace(/^#/, "");
+    if (!id) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+    return () => window.clearTimeout(timer);
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
