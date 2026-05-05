@@ -57,7 +57,7 @@ const ContactSection = () => {
       </div>
 
       <a
-        href="https://api.whatsapp.com/send?phone=917735537655"
+        href="https://api.whatsapp.com/send?phone=917975317655"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
