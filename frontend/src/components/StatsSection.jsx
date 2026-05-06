@@ -1,5 +1,5 @@
 import React from "react";
-import { Leaf, DollarSign, Activity, Building } from "lucide-react";
+import { Leaf, IndianRupee, Activity, Building } from "lucide-react";
 
 const StatsSection = () => {
   const stats = [
@@ -11,7 +11,7 @@ const StatsSection = () => {
       color: "from-green-500 to-green-600"
     },
     {
-      icon: DollarSign,
+      icon: IndianRupee,
       value: "₹200000",
       unit: "",
       label: "Saved by Residents Per EV",

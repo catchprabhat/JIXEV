@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Calendar, Battery, DollarSign, Zap } from "lucide-react";
+import { MapPin, Calendar, Battery, IndianRupee, Zap } from "lucide-react";
 
 const BenefitsSection = () => {
   const benefits = [
@@ -26,7 +26,7 @@ const BenefitsSection = () => {
     },
     {
       number: "04",
-      icon: DollarSign,
+      icon: IndianRupee,
       title: "Save Time & Money",
       description: "Avoid public charging queues and expensive home installations. Charge while your EV is idle and save!",
       color: "from-orange-500 to-orange-600"

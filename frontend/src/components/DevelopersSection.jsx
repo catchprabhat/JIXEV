@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle, DollarSign, Shield, TrendingUp } from "lucide-react";
+import { CheckCircle, IndianRupee, Shield, TrendingUp } from "lucide-react";
 
 const DevelopersSection = () => {
   const benefits = [
@@ -11,7 +11,7 @@ const DevelopersSection = () => {
       color: "from-green-500 to-green-600"
     },
     {
-      icon: DollarSign,
+      icon: IndianRupee,
       title: "Massive Cost Savings",
       description: "Avoid lakhs in infrastructure CAPEX and resident installation costs.",
       image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=800",
