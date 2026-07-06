@@ -1,46 +1,62 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
+
+const scrollToContact = () => {
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+};
 
 const PricingSection = () => {
   const [selectedPlan, setSelectedPlan] = useState("lite");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goToContact = (planName) => {
+    sessionStorage.setItem("jixev_contact_plan", planName);
+    if (location.pathname === "/") {
+      scrollToContact();
+    } else {
+      navigate("/#contact");
+    }
+  };
 
   const litePlans = [
     {
       name: "Home Charge Lite",
-      subtitle: "Best for Occasional city rides",
-      price: "16,999",
+      subtitle: "Occasional city rides.",
+      price: "20,999",
       features: [
-        "24 Sessions / Year",
-        "Max 30 kWh per session",
-        "10 Rescue Sessions (for SOC <20%)",
-        "Fast Charge: Up to 200 km in ~ 30 mins",
-        "2 cars allowed"
+        "24 sessions / year",
+        "Up to 30 kWh / session",
+        "10 rescue sessions (SOC <20%)",
+        "Up to 200 km in ~30 min",
+        "2 cars on plan"
       ],
       popular: false
     },
     {
       name: "Home Charge Plus",
-      subtitle: "Best for Regular city commutes",
-      price: "33,999",
+      subtitle: "Regular city driver.",
+      price: "40,999",
       features: [
-        "60 Sessions / Year",
-        "Max 30 kWh per session",
-        "20 Rescue Sessions (for SOC <20%)",
-        "Fast Charge: Up to 200 km in ~ 30 mins",
-        "2 cars allowed"
+        "60 sessions / year",
+        "Up to 30 kWh / session",
+        "20 rescue sessions",
+        "Up to 200 km in ~30 min",
+        "2 cars on plan"
       ],
       popular: true
     },
     {
       name: "Home Charge Unlimited",
-      subtitle: "Perfect for household with high EV usage",
-      price: "63,999",
+      subtitle: "High-usage household.",
+      price: "76,999",
       features: [
-        "Unlimited Sessions",
-        "Max 30 kWh per session",
-        "20 Rescue Sessions (for SOC <20%)",
-        "Fast Charge: Up to 200 km in ~ 30 mins",
-        "Only 1 car allowed"
+        "Unlimited sessions",
+        "Up to 30 kWh / session",
+        "20 rescue sessions",
+        "Up to 200 km in ~30 min",
+        "1 car on plan"
       ],
       popular: false
     }
@@ -49,40 +65,40 @@ const PricingSection = () => {
   const maxPlans = [
     {
       name: "Home Charge Max Lite",
-      subtitle: "Designed for large-battery EVs or longer range needs",
-      price: "32,999",
+      subtitle: "Large-battery EVs, longer range.",
+      price: "39,999",
       features: [
-        "24 Sessions / Year",
-        "60 kWh per session",
-        "10 Rescue Sessions (for SOC <20%)",
-        "Fast Charge: Up to 200 km in ~ 30 minutes",
-        "2 cars allowed"
+        "24 sessions / year",
+        "Up to 60 kWh / session",
+        "10 rescue sessions",
+        "Up to 200 km in ~30 min",
+        "2 cars on plan"
       ],
       popular: false
     },
     {
       name: "Home Charge Max Plus",
-      subtitle: "Best for high-mileage personal use",
-      price: "66,999",
+      subtitle: "Long-distance personal use.",
+      price: "80,999",
       features: [
-        "60 Sessions / Year",
-        "60 kWh per session",
-        "20 Rescue Sessions (for SOC <20%)",
-        "Fast Charge: Up to 200 km in ~ 30 minutes",
-        "2 cars allowed"
+        "60 sessions / year",
+        "Up to 60 kWh / session",
+        "20 rescue sessions",
+        "Up to 200 km in ~30 min",
+        "2 cars on plan"
       ],
       popular: true
     },
     {
       name: "Home Charge Max Unlimited",
-      subtitle: "Full flexibility for premium EV users at home",
-      price: "1,26,999",
+      subtitle: "Premium, fully unlimited.",
+      price: "1,52,999",
       features: [
-        "Unlimited Sessions",
-        "60 kWh per session",
-        "20 Rescue Sessions (for SOC <20%)",
-        "Fast Charge: Up to 200 km in ~ 30 minutes",
-        "Only 1 car allowed"
+        "Unlimited sessions",
+        "Up to 60 kWh / session",
+        "20 rescue sessions",
+        "Up to 200 km in ~30 min",
+        "1 car on plan"
       ],
       popular: false
     }
@@ -170,6 +186,8 @@ const PricingSection = () => {
 
                 {/* CTA Button */}
                 <button
+                  type="button"
+                  onClick={() => goToContact(plan.name)}
                   className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 ${
                     plan.popular
                       ? "bg-gradient-to-r from-green-600 to-blue-600 text-white hover:shadow-lg transform hover:scale-105"

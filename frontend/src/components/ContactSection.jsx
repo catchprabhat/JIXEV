@@ -1,7 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 
+const WHATSAPP_PHONE = "917975317655";
+
+const contactHighlights = [
+  { label: "Operations", value: "Bengaluru · expanding" },
+  { label: "Standard", value: "DC fast · CCS2 / Type 2" },
+  { label: "Sessions / day", value: "Per resident, on demand" },
+  { label: "Billing", value: "In-app, post-session" },
+];
+
+const emptyForm = {
+  name: "",
+  email: "",
+  phone: "",
+  address: "",
+  message: "",
+};
+
+const inputClassName =
+  "w-full px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50";
+
+const buildWhatsAppUrl = (form) => {
+  const text = [
+    "Hello JIXEV,",
+    "",
+    `Name: ${form.name}`,
+    `Email: ${form.email}`,
+    `Phone: ${form.phone}`,
+    `Address: ${form.address}`,
+    "",
+    "What can we help with?",
+    form.message,
+  ].join("\n");
+
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(text)}`;
+};
+
 const ContactSection = () => {
+  const [form, setForm] = useState(emptyForm);
+
+  useEffect(() => {
+    const plan = sessionStorage.getItem("jixev_contact_plan");
+    if (plan) {
+      setForm((prev) => ({
+        ...prev,
+        message: `I'm interested in the ${plan} plan.`,
+      }));
+      sessionStorage.removeItem("jixev_contact_plan");
+    }
+  }, []);
+
+  const updateField = (field) => (event) => {
+    setForm((prev) => ({ ...prev, [field]: event.target.value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    window.open(buildWhatsAppUrl(form), "_blank", "noopener,noreferrer");
+    setForm(emptyForm);
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-green-600 via-blue-600 to-purple-600 relative overflow-hidden">
       {/* Rotating Text Effect */}
@@ -16,14 +75,28 @@ const ContactSection = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-white">
+        <div className="text-white mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             Let's Connect
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Ready to experience the future of EV charging? Get in touch with us today.
+          <p className="text-xl text-white/90 max-w-3xl">
+            Tell us where you live or where your fleet operates. We'll reach out within one business day with a plan that fits.
           </p>
-          
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {contactHighlights.map((item) => (
+            <div
+              key={item.label}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4"
+            >
+              <p className="text-sm text-white/70 mb-1">{item.label}</p>
+              <p className="font-semibold text-white">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 text-white">
           <div className="space-y-4">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mr-4">
@@ -53,11 +126,65 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              value={form.name}
+              onChange={updateField("name")}
+              className={inputClassName}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              value={form.email}
+              onChange={updateField("email")}
+              className={inputClassName}
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone"
+              required
+              value={form.phone}
+              onChange={updateField("phone")}
+              className={inputClassName}
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              required
+              value={form.address}
+              onChange={updateField("address")}
+              className={inputClassName}
+            />
+            <textarea
+              name="message"
+              placeholder="What can we help with?"
+              rows={4}
+              required
+              value={form.message}
+              onChange={updateField("message")}
+              className={`${inputClassName} resize-none`}
+            />
+            <button
+              type="submit"
+              className="w-full py-4 bg-white text-green-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              Send
+            </button>
+          </form>
         </div>
       </div>
 
       <a
-        href="https://api.whatsapp.com/send?phone=917975317655"
+        href={`https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
