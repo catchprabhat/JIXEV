@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
+import { notifyContactPlan } from "../lib/contactPlan";
 
 const scrollToContact = () => {
   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -12,9 +13,14 @@ const PricingSection = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const goToContact = (plan) => {
+  const selectPlan = (plan, tier = planTier) => {
     setSelectedPlanId(plan.id);
-    sessionStorage.setItem("jixev_contact_plan", plan.name);
+    const sessionKwh = tier === "lite" ? "30" : "60";
+    notifyContactPlan(plan.name, sessionKwh);
+  };
+
+  const goToContact = (plan) => {
+    selectPlan(plan);
     if (location.pathname === "/") {
       scrollToContact();
     } else {
@@ -24,7 +30,12 @@ const PricingSection = () => {
 
   const handleTierChange = (tier) => {
     setPlanTier(tier);
-    setSelectedPlanId(tier === "lite" ? "plus" : "mplus");
+    const defaultId = tier === "lite" ? "plus" : "mplus";
+    const plans = tier === "lite" ? litePlans : maxPlans;
+    const defaultPlan = plans.find((plan) => plan.id === defaultId);
+    if (defaultPlan) {
+      selectPlan(defaultPlan, tier);
+    }
   };
 
   const litePlans = [
@@ -119,6 +130,13 @@ const PricingSection = () => {
 
   const currentPlans = planTier === "lite" ? litePlans : maxPlans;
 
+  useEffect(() => {
+    const defaultPlan = litePlans.find((plan) => plan.id === "plus");
+    if (defaultPlan) {
+      notifyContactPlan(defaultPlan.name, "30");
+    }
+  }, []);
+
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,11 +186,11 @@ const PricingSection = () => {
               key={plan.id}
               role="button"
               tabIndex={0}
-              onClick={() => setSelectedPlanId(plan.id)}
+              onClick={() => selectPlan(plan)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  setSelectedPlanId(plan.id);
+                  selectPlan(plan);
                 }
               }}
               className={`relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 cursor-pointer hover:-translate-y-2 ${

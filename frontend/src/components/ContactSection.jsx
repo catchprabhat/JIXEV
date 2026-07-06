@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { buildPlanMessage, CONTACT_PLAN_EVENT, CONTACT_PLAN_STORAGE_KEY, parseStoredPlan } from "../lib/contactPlan";
 
 const WHATSAPP_PHONE = "917975317655";
 
@@ -41,14 +42,27 @@ const ContactSection = () => {
   const [form, setForm] = useState(emptyForm);
 
   useEffect(() => {
-    const plan = sessionStorage.getItem("jixev_contact_plan");
-    if (plan) {
+    const applyPlan = ({ planName, sessionKwh }) => {
       setForm((prev) => ({
         ...prev,
-        message: `I'm interested in the ${plan} plan.`,
+        message: buildPlanMessage(planName, sessionKwh),
       }));
-      sessionStorage.removeItem("jixev_contact_plan");
+    };
+
+    const handlePlanSelected = (event) => {
+      applyPlan(event.detail);
+    };
+
+    window.addEventListener(CONTACT_PLAN_EVENT, handlePlanSelected);
+
+    const storedPlan = parseStoredPlan(sessionStorage.getItem(CONTACT_PLAN_STORAGE_KEY));
+    if (storedPlan) {
+      applyPlan(storedPlan);
     }
+
+    return () => {
+      window.removeEventListener(CONTACT_PLAN_EVENT, handlePlanSelected);
+    };
   }, []);
 
   const updateField = (field) => (event) => {
