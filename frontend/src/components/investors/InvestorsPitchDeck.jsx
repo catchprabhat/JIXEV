@@ -51,7 +51,7 @@ function ImageTextCard({ src, title, children }) {
 const InvestorsPitchDeck = () => {
   useEffect(() => {
     const prev = document.title;
-    document.title = "chargexpitchdeck – JIXEV in partner with Charger on Wheels (COW)";
+    document.title = "JIXEV – Investor Pitch Deck";
     return () => {
       document.title = prev;
     };
@@ -70,7 +70,7 @@ const InvestorsPitchDeck = () => {
 
       <Section className="pt-4">
         <p className="mb-2 text-center text-sm font-semibold uppercase tracking-wide text-gray-500">
-         JIXEV in partner with Charger on Wheels (COW)
+         JIXEV
         </p>
         <GradientTitle className="text-center leading-tight">
           Empowering
@@ -80,7 +80,7 @@ const InvestorsPitchDeck = () => {
         <div className="mt-8 flex justify-center">
           <img
             src="/image7.jpeg" //image1.jpeg
-            alt="Charger on Wheels"
+            alt="JIXEV"
             className="max-h-72 w-full max-w-4xl object-contain"
             loading="lazy"
           />
@@ -114,10 +114,10 @@ const InvestorsPitchDeck = () => {
 
       <Section>
         <h2 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
-          Our Solution: JIXEV in partner with Charger on Wheels (COW)
+          Our Solution: JIXEV
         </h2>
         <p className="mx-auto mb-12 max-w-3xl text-center text-lg text-gray-600">
-          Charger on Wheels is a revolutionary mobile DC fast charger that brings the charging station directly to the
+          JIXEV is a revolutionary mobile DC fast charger that brings the charging station directly to the
           EV, eliminating all the problems of fixed infrastructure.
         </p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -146,7 +146,7 @@ const InvestorsPitchDeck = () => {
 
       <Section className="bg-white/80">
         <h2 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
-          The Undeniable Advantages of Charger on Wheels
+          The Undeniable Advantages of JIXEV
         </h2>
         <p className="mx-auto mb-8 max-w-3xl text-center text-gray-600">
           We deliver unparalleled value to every stakeholder in the residential ecosystem. Explore the benefits tailored
@@ -212,7 +212,7 @@ const InvestorsPitchDeck = () => {
           </ImageTextCard>
           <ImageTextCard src={`${IMG}/2025/09/Favorable-Regulations-1.png`} title="Favorable Regulations">
             Government mandates (MBBL &amp; URDPFI) require new buildings to have 20% EV-ready parking, creating a
-            compliance-driven need for solutions like JIXEV in partner with Charger on Wheels (COW).
+            compliance-driven need for solutions like JIXEV.
           </ImageTextCard>
           <ImageTextCard src={`${IMG}/2025/09/De-licensed-Activity-1.png`} title="De-licensed Activity">
             Ministry of Power guidelines have de-licensed the setup of public charging stations, removing bureaucratic
@@ -236,7 +236,7 @@ const InvestorsPitchDeck = () => {
             channel to numerous residential and commercial properties.
           </ImageTextCard>
           <ImageTextCard src={`${IMG}/2025/09/The-Cluster-Model-1.png`} title="The Cluster Model">
-            By deploying Charger on Wheels units in 2-3km clusters, we can efficiently serve multiple societies,
+            By deploying JIXEV units in 2-3km clusters, we can efficiently serve multiple societies,
             maximizing utilization and market penetration within a concentrated geographic area.
           </ImageTextCard>
           <ImageTextCard src={`${IMG}/2025/09/Mutual-Benefits-1.png`} title="Mutual Benefits">
@@ -251,7 +251,7 @@ const InvestorsPitchDeck = () => {
           Geographic Strategy: Golf Course Road Cluster Example
         </h2>
         <p className="mx-auto mb-8 max-w-3xl text-center text-gray-600">
-          Visualizing our cluster strategy: A single Charger on Wheels van can efficiently serve multiple high-density
+          Visualizing our cluster strategy: A single JIXEV van can efficiently serve multiple high-density
           residential societies within a compact 2-3km radius along key corridors like Golf Course Road.
         </p>
         <img
@@ -269,7 +269,7 @@ const InvestorsPitchDeck = () => {
             <h2 className="mt-2 text-2xl font-bold text-gray-900">New Constructions in Metro Cities</h2>
             <p className="mt-4 text-gray-600">
               With India&apos;s metro cities adding <strong>1.3 million</strong> new homes, developers have a golden
-              opportunity. By integrating JIXEV in partner with Charger on Wheels (COW), they can offer a zero-CAPEX, future-ready EV charging solution that
+              opportunity. By integrating JIXEV, they can offer a zero-CAPEX, future-ready EV charging solution that
               satisfies regulatory requirements and attracts eco-conscious buyers, enhancing project value without
               increasing costs.
             </p>
@@ -295,7 +295,7 @@ const InvestorsPitchDeck = () => {
             <p className="mt-4 text-gray-600">
               For millions living in existing apartments, installing a personal EV charger is a maze of high costs and
               logistical hurdles. Since early public infrastructure catered to 2/3-wheelers, car owners are left behind.
-              JIXEV in partner with Charger on Wheels (COW) elegantly bypasses these barriers, offering a simple, accessible charging solution for everyone.
+              JIXEV elegantly bypasses these barriers, offering a simple, accessible charging solution for everyone.
             </p>
           </div>
         </div>
@@ -312,7 +312,7 @@ const InvestorsPitchDeck = () => {
           </div>
           <img
             src={`${IMG}/2025/09/charge-on-wheel-4.png`}
-            alt="Charger on Wheels"
+            alt="JIXEV"
             loading="lazy"
             className="h-64 w-full rounded-2xl object-contain shadow-md lg:h-auto"
           />
@@ -324,14 +324,14 @@ const InvestorsPitchDeck = () => {
           <p className="mt-4 max-w-3xl text-gray-600">
             With the Indian EV market projected to hit <strong className="text-green-600">700,000</strong> annual sales
             by 2030, the focus of leading OEMs like Tata and Mahindra is on highway infrastructure. This creates a
-            critical gap for the daily, at-home charging experience. JIXEV in partner with Charger on Wheels (COW) fills this void perfectly, offering a
+            critical gap for the daily, at-home charging experience. JIXEV fills this void perfectly, offering a
             synergistic partnership that completes the EV ownership experience and makes it seamless for new buyers.
           </p>
         </div>
       </Section>
 
       <Section className="bg-white/90">
-        <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl">Business Market for JIXEV in partner with Charger on Wheels (COW)</h2>
+        <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl">Business Market for JIXEV</h2>
         <Tabs defaultValue="residential" className="w-full">
           <TabsList className="mx-auto mb-8 flex h-auto min-h-12 w-full flex-col flex-wrap justify-stretch gap-2 rounded-2xl bg-gray-200 p-2 sm:flex-row sm:justify-center lg:max-w-4xl">
             <TabsTrigger value="residential" className="flex-1 rounded-xl data-[state=active]:bg-white">
@@ -351,7 +351,7 @@ const InvestorsPitchDeck = () => {
             <h3 className="text-xl font-bold text-gray-900">New Constructions in Metro Cities</h3>
             <p className="mt-4 text-gray-600">
               With India&apos;s metro cities adding <strong className="text-green-600">1.3 million</strong> new homes,
-              developers have a golden opportunity. By integrating JIXEV in partner with Charger on Wheels (COW), they can offer a zero-CAPEX, future-ready EV
+              developers have a golden opportunity. By integrating JIXEV, they can offer a zero-CAPEX, future-ready EV
               charging solution that satisfies regulatory requirements and attracts eco-conscious buyers, enhancing
               project value without increasing costs.
             </p>
@@ -361,7 +361,7 @@ const InvestorsPitchDeck = () => {
             <p className="mt-4 text-gray-600">
               For millions living in existing apartments, installing a personal EV charger is a maze of high costs and
               logistical hurdles. Since early public infrastructure catered to 2/3-wheelers, car owners are left behind.
-              JIXEV in partner with Charger on Wheels (COW) elegantly bypasses these barriers, offering a simple, accessible charging solution for everyone.
+              JIXEV elegantly bypasses these barriers, offering a simple, accessible charging solution for everyone.
             </p>
           </TabsContent>
           <TabsContent value="fm" className="rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
@@ -377,7 +377,7 @@ const InvestorsPitchDeck = () => {
             <p className="mt-4 text-gray-600">
               With the Indian EV market projected to hit <strong className="text-green-600">700,000</strong> annual
               sales by 2030, the focus of leading OEMs like Tata and Mahindra is on highway infrastructure. This creates
-              a critical gap for the daily, at-home charging experience. JIXEV in partner with Charger on Wheels (COW) fills this void perfectly, offering a
+              a critical gap for the daily, at-home charging experience. JIXEV fills this void perfectly, offering a
               synergistic partnership that completes the EV ownership experience and makes it seamless for new buyers.
             </p>
           </TabsContent>

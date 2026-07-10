@@ -4,13 +4,6 @@ import { buildPlanMessage, CONTACT_PLAN_EVENT, CONTACT_PLAN_STORAGE_KEY, parseSt
 
 const WHATSAPP_PHONE = "917975317655";
 
-const contactHighlights = [
-  { label: "Operations", value: "Bengaluru · expanding" },
-  { label: "Standard", value: "DC fast · CCS2 / Type 2" },
-  { label: "Sessions / day", value: "Per resident, on demand" },
-  { label: "Billing", value: "In-app, post-session" },
-];
-
 const emptyForm = {
   name: "",
   email: "",
@@ -96,18 +89,6 @@ const ContactSection = () => {
           <p className="text-xl text-white/90 max-w-3xl">
             Tell us where you live or where your fleet operates. We'll reach out within one business day with a plan that fits.
           </p>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          {contactHighlights.map((item) => (
-            <div
-              key={item.label}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4"
-            >
-              <p className="text-sm text-white/70 mb-1">{item.label}</p>
-              <p className="font-semibold text-white">{item.value}</p>
-            </div>
-          ))}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 text-white">

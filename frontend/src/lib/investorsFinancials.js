@@ -1,5 +1,10 @@
 /** Ported from Charger on Wheels pitch deck (Elementor HTML widget) — same numeric assumptions. */
 
+export const CUSTOMERS_PER_CHARGER_MIN = 40;
+export const CUSTOMERS_PER_CHARGER_MAX = 100;
+export const SUBSCRIPTION_FEE_MIN = 21000;
+export const SUBSCRIPTION_FEE_MAX = 77000;
+
 export const initialAssumptions = {
   chargerCapacityKwh: 60,
   chargerOutputKw: 60,
@@ -8,7 +13,7 @@ export const initialAssumptions = {
   operatingDaysPerMonth: 30,
   sessionsPerRecharge: 15,
   capexPerVan: 2100000,
-  driverSalary: 45000,
+  driverSalary: 60000,
   maintenance: 7000,
   vanRental: 22600,
   techInfra: 0,
@@ -70,11 +75,11 @@ export function performCalculations(numChargers, customersPerCharger, subscripti
   ];
 
   const scaleUpScenarios = [
-    { chargers: 10, customers: 80 },
-    { chargers: 20, customers: 80 },
-    { chargers: 30, customers: 80 },
-    { chargers: 40, customers: 80 },
-    { chargers: 50, customers: 80 },
+    { chargers: 10, customers: CUSTOMERS_PER_CHARGER_MAX },
+    { chargers: 20, customers: CUSTOMERS_PER_CHARGER_MAX },
+    { chargers: 30, customers: CUSTOMERS_PER_CHARGER_MAX },
+    { chargers: 40, customers: CUSTOMERS_PER_CHARGER_MAX },
+    { chargers: 50, customers: CUSTOMERS_PER_CHARGER_MAX },
   ];
 
   const scaleUpData = scaleUpScenarios.map((s) => {

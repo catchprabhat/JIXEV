@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -14,7 +14,7 @@ import {
 } from "recharts";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { formatCurrency, performCalculations, formatSubscriptionLabel } from "@/lib/investorsFinancials";
+import { formatCurrency, performCalculations, formatSubscriptionLabel, CUSTOMERS_PER_CHARGER_MIN, CUSTOMERS_PER_CHARGER_MAX, SUBSCRIPTION_FEE_MIN, SUBSCRIPTION_FEE_MAX } from "@/lib/investorsFinancials";
 import { TrendingUp, Zap, Truck, Users, IndianRupee, BatteryCharging, Briefcase, Scale } from "lucide-react";
 
 const COLORS = {
@@ -46,16 +46,6 @@ const InvestorsFinancialDashboard = () => {
   const [customersPerCharger, setCustomersPerCharger] = useState(60);
   const [subscriptionFee, setSubscriptionFee] = useState(37500);
 
-  const isDenseNetwork = numChargers >= 10;
-
-  useEffect(() => {
-    if (numChargers >= 10) {
-      setCustomersPerCharger((c) => (c < 80 ? 80 : Math.min(c, 80)));
-    } else {
-      setCustomersPerCharger((c) => Math.min(c, 60));
-    }
-  }, [numChargers]);
-
   const calculations = useMemo(
     () => performCalculations(numChargers, customersPerCharger, subscriptionFee),
     [numChargers, customersPerCharger, subscriptionFee]
@@ -84,7 +74,7 @@ const InvestorsFinancialDashboard = () => {
 
       <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <h3 className="text-2xl font-bold text-slate-900">Charger on Wheels</h3>
+          <h3 className="text-2xl font-bold text-slate-900">JIXEV</h3>
           <p className="mt-1 text-slate-500">Interactive Business Metrics Framework</p>
         </div>
         <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-700">
@@ -119,18 +109,19 @@ const InvestorsFinancialDashboard = () => {
           </Label>
           <div className="mt-3 flex items-center gap-4">
             <Slider
-              min={40}
-              max={isDenseNetwork ? 80 : 60}
+              min={CUSTOMERS_PER_CHARGER_MIN}
+              max={CUSTOMERS_PER_CHARGER_MAX}
               step={10}
               value={[customersPerCharger]}
-              onValueChange={(v) => setCustomersPerCharger(v[0])}
+              onValueChange={(v) =>
+                setCustomersPerCharger(
+                  Math.min(CUSTOMERS_PER_CHARGER_MAX, Math.max(CUSTOMERS_PER_CHARGER_MIN, v[0]))
+                )
+              }
               className="flex-1"
             />
             <span className="w-12 text-center font-bold text-emerald-600">{customersPerCharger}</span>
           </div>
-          {isDenseNetwork && (
-            <p className="mt-2 text-xs text-slate-500">Max capacity (80) unlocked with 10+ chargers.</p>
-          )}
         </div>
 
         <div className="rounded-2xl bg-white p-6 shadow-md md:col-span-2 lg:col-span-1">
@@ -140,11 +131,15 @@ const InvestorsFinancialDashboard = () => {
           </Label>
           <div className="mt-3 flex items-center gap-4">
             <Slider
-              min={25000}
-              max={50000}
+              min={SUBSCRIPTION_FEE_MIN}
+              max={SUBSCRIPTION_FEE_MAX}
               step={500}
               value={[subscriptionFee]}
-              onValueChange={(v) => setSubscriptionFee(v[0])}
+              onValueChange={(v) =>
+                setSubscriptionFee(
+                  Math.min(SUBSCRIPTION_FEE_MAX, Math.max(SUBSCRIPTION_FEE_MIN, v[0]))
+                )
+              }
               className="flex-1"
             />
             <span className="w-24 shrink-0 text-center font-bold text-orange-600">
